@@ -12,6 +12,7 @@ var jeff = {
     isArray : function(a) {
         return toString.apply(a) === '[object Array]';
     },
+    //计数器
     Cun:(function(){
     	  var n = 0;
     	  return function(){
