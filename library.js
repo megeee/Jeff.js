@@ -12,6 +12,10 @@ var jeff = {
     isArray : function(a) {
         return toString.apply(a) === '[object Array]';
     },
-  
-
+    Cun:(function(){
+    	  var n = 0;
+    	  return function(){
+    	    	return ++n;
+      	}
+    })()
 }
