@@ -141,8 +141,6 @@
     };
     /*
     * 获取某天前后X天日期
-    * @param dayCount ==> int (1)
-    * @param date  ==> string & object ("2090-04-01" or new Date())
     * J.getDateStr(-1,new Date()) ==> 获取昨天的日期
     * J.getDateStr(5,"2017-04-05") ==>  获取5天后的日期
     */
