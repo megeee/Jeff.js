@@ -145,7 +145,6 @@
     * J.getDateStr(5,"2017-04-05") ==>  获取5天后的日期
     */
     Jeff.prototype.getLaterDay = function(dayCount,date) {
-        //如果传入date的值为字符串，就将其转换为日期对象
         if (typeof date === 'string') {  
             date = new Date(Date.parse(date.replace(/-\/./g, "/")));
         }
