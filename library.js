@@ -167,7 +167,7 @@
 
     /*
     * 比较两个时间大小  yyyy-mm-dd
-    * @returns true ==> d1比d2大, flase d1比d2小
+    * @returns： true d1比d2大, flase d1比d2小
      */
     Jeff.prototype.compareDate = function(d1, d2) {
         return ((new Date(d1.replace(/-/g, "\/"))) > (new Date(d2.replace(/-/g, "\/"))));
