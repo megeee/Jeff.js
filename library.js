@@ -14,7 +14,7 @@
     Jeff.prototype.url = {
         /*
         * 获取url参数
-        * @return {mame1:"xxx",name2:"yyy"}
+        * @return {mame1:value1,name2:value1}
         */
         getUrlParam:function(){
             var result = {}, queryString = location.search.substring(1)
@@ -176,6 +176,9 @@
 
     //常用正则验证
     //DOM操作
+
+
+
     /*
     * cookie操作类
     */
