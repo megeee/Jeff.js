@@ -148,7 +148,7 @@
         if (typeof date === 'string') {  
             date = new Date(Date.parse(date.replace(/-\/./g, "/")));
         }
-        date.setDate(date.getDate() + dayCount);//获取DayCount天后的日期
+        date.setDate(date.getDate() + dayCount);
         return date;
     };
     /*
