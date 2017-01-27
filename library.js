@@ -233,7 +233,7 @@
         isFirefox : /Firefox/i.test(navigator.userAgent)
     },
 
-    //获取本机内网IP
+    //获取本机内网(局域网)IP
     Jeff.prototype.getLocalIp =  function(callback){
         var ip_dups = {},
             RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection,
