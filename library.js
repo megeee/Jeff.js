@@ -230,7 +230,8 @@
         isWindows : /windows/i.test(navigator.userAgent),
         isWeiXin: window.navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == 'micromessenger',
         isQQBrowser:/QQBrowser/i.test(navigator.userAgent),
-        isFirefox : /Firefox/i.test(navigator.userAgent)
+        isFirefox : /Firefox/i.test(navigator.userAgent),
+        is360 : /360/i.test(navigator.userAgent)
     },
 
     //获取本机内网(局域网)IP
