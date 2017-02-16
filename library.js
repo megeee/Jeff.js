@@ -45,7 +45,7 @@
                 return n;
             }
         };
-        var txt_weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        var txt_weekdays = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
         var txt_ordin = {1:"st", 2:"nd", 3:"rd", 21:"st", 22:"nd", 23:"rd", 31:"st"};
         var txt_months = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var f = {
@@ -161,14 +161,11 @@
     * J.getLastDay(2017,5) ==> 获取5月份最后一天的日期
     */
     Jeff.prototype.getLastDay = function(year, month) {
-        var new_year = year,    //取当前的年份
-            new_month = month++;//取下一个月的第一天，方便计算（最后一天不固定）
-        if (month > 12) {
-            new_month -= 12;
-            new_year++; 
+        if(!year || !month){
+            year = new Date().getFullYear();
+            month = new Date().getMonth()+1;
         }
-        var new_date = new Date(new_year, new_month, 1);//取当年当月中的第一天
-        return (new Date(new_date.getTime() - 1000 * 60 * 60 * 24)).getDate();//获取当月最后一天日期
+        return new Date(year,month,0).getDate();
     };
 
     /*
