@@ -6,12 +6,15 @@
     //数组类
     //字符串类
 
-    //################  时间类  ################//
+/*********************  时间类  *********************/
 
     /*
-    * 时间戳转换成指定的时间显示格式   new Date().formatUnix('Y-m-d H:i:s',new Date().getTime()/1000) ==> 2017-04-12 12:28:00
+    * 时间戳转换成指定的时间显示格式   
+    * @param format ==> string ("Y-m-d H:i:s")
+    * @param timestamp  ==> int (1491970964)
+    * new Date().formatUnix('Y-m-d H:i:s',new Date().getTime()/1000) ==> 2017-04-12 12:28:00
     */
-    Date.prototype.formatUnix = function(format, timestamp) {
+    Jeff.prototype.formatUnix = function(format, timestamp) {
         var a, jsdate=((timestamp) ? new Date(timestamp*1000) : new Date());
         var pad = function(n, c){
             if((n = n + "").length < c){
@@ -115,21 +118,48 @@
 
     };
     /*
-    * 或取前后x天日期
+    * 获取某天前后X天日期
+    * @param dayCount ==> int (1)
+    * @param date  ==> string & object ("2090-04-01" or new Date())
     * J.getDateStr(-1,new Date()) ==> 获取昨天的日期
     * J.getDateStr(5,"2017-04-05") ==>  获取5天后的日期
     */
     Jeff.prototype.getLaterDay = function(dayCount,date) {
     	//如果传入date的值为字符串，就将其转换为日期对象
         if (typeof date === 'string') {  
-        	date = new Date(Date.parse(date.replace(/-/g, "/")));
+			date = new Date(Date.parse(date.replace(/-/g, "/")));
         }
         date.setDate(date.getDate() + dayCount);//获取DayCount天后的日期
         var y = date.getFullYear(),
             m = (date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1),
             d = date.getDate() < 10 ? "0" + date.getDate() : date.getDate(); 
         return y + "-" + m + "-" + d;
+    };
+    /*
+    * 获取某月最后一天的日期
+    * @param year ==> int (2017)
+    * @param date  ==> int (5)
+    * J.getLastDay(2017,5) ==> 获取5月份最后一天的日期
+    */
+    Jeff.prototype.getLastDay = function(year, month) {
+        var new_year = year,    //取当前的年份
+            new_month = month++;//取下一个月的第一天，方便计算（最后一天不固定）
+        if (month > 12) {
+            new_month -= 12;
+            new_year++; 
+        }
+        var new_date = new Date(new_year, new_month, 1);//取当年当月中的第一天
+        return (new Date(new_date.getTime() - 1000 * 60 * 60 * 24)).getDate();//获取当月最后一天日期
+    };
+
+    /*
+    * 比较两个时间大小  yyyy-mm-dd
+    * @returns true ==> d1比d2大, flase d1比d2小
+     */
+    Jeff.prototype.compareDate = function(d1, d2) {
+        return ((new Date(d1.replace(/-/g, "\/"))) > (new Date(d2.replace(/-/g, "\/"))));
     }
+/*********************  时间类 End  *********************/
 
     //常用正则验证
 
@@ -163,14 +193,12 @@
 
     //获取本机内网IP
     Jeff.prototype.getLocalIp =  function(callback){
-        var ip_dups = {};
-        var RTCPeerConnection = window.RTCPeerConnection
-            || window.mozRTCPeerConnection
-            || window.webkitRTCPeerConnection;
-        var mediaConstraints = {
-            optional: [{RtpDataChannels: true}]
-        };
-        var servers = undefined;
+        var ip_dups = {},
+            RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection,
+            mediaConstraints = {
+                optional: [{RtpDataChannels: true}]
+            },
+            servers = undefined;
         if(window.webkitRTCPeerConnection)
             servers = {iceServers: [{urls: "stun:stun.services.mozilla.com"}]};
         var pc = new RTCPeerConnection(servers, mediaConstraints);
