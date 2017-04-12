@@ -114,6 +114,22 @@
         });
 
     };
+    /*
+    * 或取前后x天日期
+    * J.getDateStr(-1,new Date()) ==> 获取昨天的日期
+    * J.getDateStr(5,"2017-04-05") ==>  获取5天后的日期
+    */
+    Jeff.prototype.getLaterDay = function(dayCount,date) {
+    	//如果传入date的值为字符串，就将其转换为日期对象
+        if (typeof date === 'string') {  
+        	date = new Date(Date.parse(date.replace(/-/g, "/")));
+        }
+        date.setDate(date.getDate() + dayCount);//获取DayCount天后的日期
+        var y = date.getFullYear(),
+            m = (date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1),
+            d = date.getDate() < 10 ? "0" + date.getDate() : date.getDate(); 
+        return y + "-" + m + "-" + d;
+    }
 
     //常用正则验证
 
