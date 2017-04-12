@@ -222,8 +222,9 @@
         · isMacintosh : 是否为Mac
         · isMobile : 是否为移动设备
         · isWindows : 是否为Windows
-        . isWeiXin() : 是否是微信
-
+        . isWeiXin : 是否是微信
+        . isQQBrowser : 就否QQ浏览器
+        . isFirefox : 是否火狐浏览器
      */
     Jeff.prototype.os = {
         isAndroid : /android/i.test(navigator.userAgent),
@@ -233,7 +234,9 @@
         isMacintosh : /macintosh/i.test(navigator.userAgent),
         isMobile : !!navigator.userAgent.match(/AppleWebKit.*Mobile.*/) || !!navigator.userAgent.match(/AppleWebKit/),
         isWindows : /windows/i.test(navigator.userAgent),
-        isWeiXin: window.navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == 'micromessenger'
+        isWeiXin: window.navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == 'micromessenger',
+        isQQBrowser:/QQBrowser/i.test(navigator.userAgent),
+        isFirefox : /Firefox/i.test(navigator.userAgent)
     },
 
     //获取本机内网IP
