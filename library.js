@@ -1,26 +1,29 @@
 
 !(function(window,document){
 
-    var Jeff = function (){};
+    var Jeff = function (){
+    	
+    };
 
     //数组类
     //字符串类
     //URL类
     
 /*********************  URL类  *********************/
-    /*
-    * 获取url参数
-    * @return {mame1:"xxx",name2:"yyy"}
-    */
+
     Jeff.prototype.url = {
+        /*
+        * 获取url参数
+        * @return {mame1:"xxx",name2:"yyy"}
+        */
         getUrlParam:function(){
-			var result = {}, queryString = location.search.substring(1)
-			,re = /([^&=]+)=([^&]*)/g, s;
-			while (s = re.exec(queryString)) {
-				result[s[1]] = s[2];
-			}
-			return result;
-        }
+            var result = {}, queryString = location.search.substring(1)
+            ,re = /([^&=]+)=([^&]*)/g, s;
+            while (s = re.exec(queryString)) {
+                result[s[1]] = s[2];
+            }
+            return result;
+        }        
     }
 /*********************  URL类 End  *********************/
 
@@ -144,9 +147,9 @@
     * J.getDateStr(5,"2017-04-05") ==>  获取5天后的日期
     */
     Jeff.prototype.getLaterDay = function(dayCount,date) {
-    	//如果传入date的值为字符串，就将其转换为日期对象
+        //如果传入date的值为字符串，就将其转换为日期对象
         if (typeof date === 'string') {  
-			date = new Date(Date.parse(date.replace(/-/g, "/")));
+            date = new Date(Date.parse(date.replace(/-/g, "/")));
         }
         date.setDate(date.getDate() + dayCount);//获取DayCount天后的日期
         var y = date.getFullYear(),
@@ -209,6 +212,29 @@
             document.cookie = str;
         }
     };
+
+    //判断当前系统平台
+    /*
+        · isAndroid : 是否为安卓系统
+        · isBlackBerry : 是否为黑莓
+        · isIpad : 是否为iPad
+        · isIphone : 是否为iPhone
+        · isMacintosh : 是否为Mac
+        · isMobile : 是否为移动设备
+        · isWindows : 是否为Windows
+        . isWeiXin() : 是否是微信
+
+     */
+    Jeff.prototype.os = {
+        isAndroid : /android/i.test(navigator.userAgent),
+        isBlackBerry : /BlackBerry/i.test(navigator.userAgent),
+        isIpad : /ipad/i.test(navigator.userAgent),
+        isIphone : /iphone/i.test(navigator.userAgent),
+        isMacintosh : /macintosh/i.test(navigator.userAgent),
+        isMobile : !!navigator.userAgent.match(/AppleWebKit.*Mobile.*/) || !!navigator.userAgent.match(/AppleWebKit/),
+        isWindows : /windows/i.test(navigator.userAgent),
+        isWeiXin: window.navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == 'micromessenger'
+    },
 
     //获取本机内网IP
     Jeff.prototype.getLocalIp =  function(callback){
