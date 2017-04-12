@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Demo</title>
     <script src="library.js"></script>
     <script>
-    console.log(jeff)
+    J.getLocalIp(function(ip){
+    	alert(ip)
+    })
+    //Date.formatUnix('h:m:s',1491970595)
+    console.log(new Date().formatUnix('Y-m-d H:i:s',new Date().getTime()/1000))
     </script>
 </head>
 <body>
