@@ -6,10 +6,11 @@
     <script src="library.js"></script>
     <script>
     J.getLocalIp(function(ip){
-    	alert(ip)
+    	console.log(ip)
     })
     //Date.formatUnix('h:m:s',1491970595)
     console.log(new Date().formatUnix('Y-m-d H:i:s',new Date().getTime()/1000))
+    console.log(new Date().formatUnix('Y/m/d H:i:s',new Date().getTime()/1000))
     </script>
 </head>
 <body>
