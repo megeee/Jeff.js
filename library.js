@@ -5,6 +5,25 @@
 
     //数组类
     //字符串类
+    //URL类
+    
+/*********************  URL类  *********************/
+    /*
+    * 获取url参数
+    * @return {mame1:"xxx",name2:"yyy"}
+    */
+    Jeff.prototype.url = {
+        getUrlParam:function(){
+			var result = {}, queryString = location.search.substring(1)
+			,re = /([^&=]+)=([^&]*)/g, s;
+			while (s = re.exec(queryString)) {
+				result[s[1]] = s[2];
+			}
+			return result;
+        }
+    }
+/*********************  URL类 End  *********************/
+
 
 /*********************  时间类  *********************/
 
@@ -105,15 +124,15 @@
         };
 
         return format.replace(/[\\]?([a-zA-Z])/g, function(t, s){
-            var ret;
+            var result;
             if( t!=s ){
-                ret = s;
+                result = s;
             } else if( f[s] ){
-                ret = f[s]();
+                result = f[s]();
             } else{
-                ret = s;
+                result = s;
             }
-            return ret;
+            return result;
         });
 
     };
