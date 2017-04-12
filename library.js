@@ -1,7 +1,7 @@
 
 !(function(window,document){
 
-	var Jeff = function (){};
+    var Jeff = function (){};
 
 	//数组类
 	//字符串类
