@@ -8,8 +8,8 @@ var Jeff = {};
 //cookie操作
 Jeff.cookie = {
 
-	del: function(name, path, domain){
-		document.cookie = name + "=" +
+    del: function(name, path, domain){
+        document.cookie = name + "=" +
 			((path) ? "; path=" + path : "") +
 			((domain) ? "; domain=" + domain : "") +
 			"; expires=Thu, 01-Jan-70 00:00:01 GMT";
@@ -35,7 +35,6 @@ Jeff.cookie = {
 
 };
 
-window.jeff = Jeff;
+window.J = Jeff;
 
 })(window,document)
-
