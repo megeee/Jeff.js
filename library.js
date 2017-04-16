@@ -152,10 +152,7 @@
             date = new Date(Date.parse(date.replace(/-/g, "/")));
         }
         date.setDate(date.getDate() + dayCount);//获取DayCount天后的日期
-        var y = date.getFullYear(),
-            m = (date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1),
-            d = date.getDate() < 10 ? "0" + date.getDate() : date.getDate(); 
-        return y + "-" + m + "-" + d;
+        return date;
     };
     /*
     * 获取某月最后一天的日期
