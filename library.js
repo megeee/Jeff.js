@@ -149,7 +149,7 @@
     Jeff.prototype.getLaterDay = function(dayCount,date) {
         //如果传入date的值为字符串，就将其转换为日期对象
         if (typeof date === 'string') {  
-            date = new Date(Date.parse(date.replace(/-/g, "/")));
+            date = new Date(Date.parse(date.replace(/-\/./g, "/")));
         }
         date.setDate(date.getDate() + dayCount);//获取DayCount天后的日期
         return date;
