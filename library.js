@@ -219,6 +219,7 @@
         . isWeiXin : 是否是微信
         . isQQBrowser : 就否QQ浏览器
         . isFirefox : 是否火狐浏览器
+        . is360 : 是否360浏览器
      */
     Jeff.prototype.os = {
         isAndroid : /android/i.test(navigator.userAgent),
