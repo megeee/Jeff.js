@@ -207,6 +207,17 @@
         }
     };
 
+    /*
+    *随机类
+     */
+    Jeff.prototype.random = {
+        //随机生成一个十六进制颜色
+        color : function(){
+            var c = Math.random(0, 0xFFFFFF);
+            return '#' + ('000000' + c.toString(16)).slice(-6);
+        }
+    }
+
     //判断当前系统平台
     /*
         · isAndroid : 是否为安卓系统
@@ -220,7 +231,7 @@
         . isQQBrowser : 就否QQ浏览器
         . isFirefox : 是否火狐浏览器
         . is360 : 是否360浏览器
-     */
+    */    
     Jeff.prototype.os = {
         isAndroid : /android/i.test(navigator.userAgent),
         isBlackBerry : /BlackBerry/i.test(navigator.userAgent),
