@@ -215,6 +215,10 @@
         color : function(){
             var c = Math.random(0, 0xFFFFFF);
             return '#' + ('000000' + c.toString(16)).slice(-6);
+        },
+        intNum : function(begin,end){
+            var c = end - begin + 1;    
+            return Math.floor(Math.random() * c + begin);
         }
     }
 
