@@ -44,11 +44,11 @@
             } else {
                 return n;
             }
-        };
-        var txt_weekdays = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
-        var txt_ordin = {1:"st", 2:"nd", 3:"rd", 21:"st", 22:"nd", 23:"rd", 31:"st"};
-        var txt_months = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        var f = {
+        }
+        , txt_weekdays = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+        , txt_ordin = {1:"st", 2:"nd", 3:"rd", 21:"st", 22:"nd", 23:"rd", 31:"st"}
+        , txt_months = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        , f = {
             // Day
             d: function(){return pad(f.j(), 2)},
             D: function(){return f.l().substr(0,3)},
@@ -219,7 +219,18 @@
         intNum : function(begin,end){
             var c = end - begin + 1;    
             return Math.floor(Math.random() * c + begin);
-        }
+        },
+        //生成指定位数的随机字符串大小写字母
+        string(len) {  
+        　　len = len || 32;  
+        　　var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' 
+        　　, max = chars.length  
+        　　, exp = '';  
+        　　for (i = 0; i < len; i++) {  
+                exp += chars.charAt(Math.floor(Math.random() * (max+1)));  
+        　　}  
+        　　return exp;  
+        }  
     }
 
     //判断当前系统平台
