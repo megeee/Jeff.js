@@ -221,7 +221,7 @@
             return Math.floor(Math.random() * c + begin);
         },
         //生成指定位数的随机字符串大小写字母
-        string(len) {  
+        string : function(len) {  
         　　len = len || 32;  
         　　var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' 
         　　, max = chars.length  
