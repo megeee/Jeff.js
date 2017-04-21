@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Demo</title>
-    <script src="library.js"></script>
+    <script src="Jeff.min.js"></script>
     <script>
     console.log(J.formatUnix('Y-m-d H:i:s',new Date().getTime()/1000))
     console.log(J.formatUnix('Y/m/d H:i:s',new Date().getTime()/1000))
@@ -11,6 +11,8 @@
     console.log(J.getLastDay(2017,2))
     console.log(J.compareDate("2017-11-02","2016-12-30"))
     console.log(J.url.getUrlParam())
+    console.log(J.random.intNum(0,200))
+    console.log(J.is.isObj({a:1}))
     </script>
 </head>
 <body>
