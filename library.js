@@ -5,7 +5,20 @@
     	
     };
 
-    //数组类
+    //数据类型判断
+    Jeff.prototype.is = {
+
+        isArray:function(arr){
+            return Object.prototype.toString.call(arr)==='[object Array]';
+        },
+        isFn:function(fn){
+            return Object.prototype.toString.call(fn)==='[object Function]';
+        },
+        isObj:function (x) { 
+            return x === Object(x);
+        }
+
+    }
     //字符串类
     //URL类
     
