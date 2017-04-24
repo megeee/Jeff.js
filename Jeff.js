@@ -14,7 +14,18 @@
         },
         isObj:function (x) { 
             return x === Object(x);
-        }        
+        },
+        emptyObj:function(obj){
+            if(this.isObj(obj)){
+                var k;
+                for (k in obj) {
+                    if(obj[k] === "undefined" || obj[k] === null || obj[k] === '')
+                    return false
+                }
+                return true 
+            }
+        }
+        
     }
     //字符串类
     //URL类
