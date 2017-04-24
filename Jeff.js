@@ -1,9 +1,7 @@
 
 !(function(window,document){
 
-    var Jeff = function (){
-    	
-    };
+    var Jeff = function (){};
 
     //数据类型判断
     Jeff.prototype.is = {
@@ -16,8 +14,7 @@
         },
         isObj:function (x) { 
             return x === Object(x);
-        }
-
+        }        
     }
     //字符串类
     //URL类
@@ -38,6 +35,39 @@
             return result;
         }        
     }
+
+    Jeff.prototype.load = {
+        //动态加载JS
+        js: function(url, callback) {
+            var head = document.getElementsByTagName('head')[0]
+            var script = document.createElement('script');
+                script.setAttribute('type', 'text/javascript'); 
+                script.setAttribute('src', url); 
+                head.appendChild(script);
+
+            //回调
+            var callbackFn = function(){
+                    if(typeof callback === 'function'){
+                        callback();
+                    }
+            };
+
+            if (document.all) { //IE
+                script.onreadystatechange = function() {
+                    if (script.readyState == 'loaded' || script.readyState == 'complete') {
+                        callbackFn();
+                    }
+                }
+            } else {
+                script.onload = function() {
+                    callbackFn();
+                }
+            }
+            
+        }
+
+        //css
+    };
 /*********************  URL类 End  *********************/
 
 
