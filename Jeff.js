@@ -230,7 +230,17 @@
 
     //常用正则验证
     //DOM操作
-
+    //微信相关
+    Jeff.prototype.wx = {
+        //解决audio在IOS微信中不能自动播放的问题
+        audioAutoPlay:function(ele){
+            var audio = document.getElementById(ele);
+            audio.play();
+            document.addEventListener("WeixinJSBridgeReady", function (){
+                audio.play();
+            }, false);
+        }
+    }
 
 
     /*
