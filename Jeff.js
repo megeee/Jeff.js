@@ -30,7 +30,7 @@
     //字符串类
 
     /*
-    * 实现utf8解码
+    * 实现utf8字符解码
     */
     Jeff.prototype.utf8_decode = function(str){
         var tmp_arr = [],i = 0,ac = 0,c1 = 0,c2 = 0,c3 = 0;str += '';
