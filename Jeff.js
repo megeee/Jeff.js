@@ -341,7 +341,7 @@
         isIpad : /ipad/i.test(navigator.userAgent),
         isIphone : /iphone/i.test(navigator.userAgent),
         isMacintosh : /macintosh/i.test(navigator.userAgent),
-        isMobile : !!navigator.userAgent.match(/AppleWebKit.*Mobile.*/) || !!navigator.userAgent.match(/AppleWebKit/),
+        isMobile : /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
         isWindows : /windows/i.test(navigator.userAgent),
         isWeiXin: window.navigator.userAgent.toLowerCase().match(/MicroMessenger/i) == 'micromessenger',
         isQQBrowser:/QQBrowser/i.test(navigator.userAgent),
