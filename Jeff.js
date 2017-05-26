@@ -347,7 +347,7 @@
         isQQBrowser:/QQBrowser/i.test(navigator.userAgent),
         isFirefox : /Firefox/i.test(navigator.userAgent),
         is360 : /360/i.test(navigator.userAgent)
-    },
+    }
 
     //获取本机内网(局域网)IP
     Jeff.prototype.getLocalIp =  function(callback){
@@ -373,6 +373,26 @@
         pc.createOffer(function(result){
             pc.setLocalDescription(result, function(){});
         }, function(){});
+    };
+
+    /*********************  事件  *********************/
+    //添加事件监听
+    Jeff.prototype.addEvent = function(element,type,handler){
+        if(element.addEventListener){
+            element.addEventListener(type,handler,false);
+        } else {
+            element.attachEvent('on'+type,function(){
+                handler.call(element);
+            });
+        }
+    };
+    //移除事件， handler 不能为匿名函数
+    Jeff.prototype.removeEvent = function(element,type,handler){
+        if(element.removeEventListener){
+            element.removeEventListener(type,handler,false);
+        } else {
+            element.detachEvent('on'+type,handler);
+        }
     };
 
     window.J = new Jeff();
