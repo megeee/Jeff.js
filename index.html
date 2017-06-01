@@ -5,14 +5,17 @@
     <title>Demo</title>
     <script src="Jeff.js"></script>
     <script>
-    console.log(J.formatUnix('Y-m-d H:i:s',new Date().getTime()/1000))
-    console.log(J.formatUnix('Y/m/d H:i:s',new Date().getTime()/1000))
-    console.log(J.getLaterDay(5,"2017-04-05"))
-    console.log(J.getLastDay(2017,2))
-    console.log(J.compareDate("2017-11-02","2016-12-30"))
-    console.log(J.url.getUrlParam())
-    console.log(J.random.intNum(0,200))
-    console.log(J.is.isObj({a:1}))
+    console.log(J.formatUnix('Y-m-d H:i:s',new Date().getTime()/1000));
+    console.log(J.formatUnix('Y/m/d H:i:s',new Date().getTime()/1000));
+    console.log(J.getLaterDay(5,"2017-04-05"));
+    console.log(J.getLastDay(2017,2));
+    console.log(J.compareDate("2017-11-02","2016-12-30"));
+    console.log(J.url.getUrlParam());
+    console.log(J.random.intNum(0,200));
+    console.log(J.is.isObj({a:1}));
+    var o1 = {b:123,d:{k:12},c:222};
+    var o2 = {c:222,b:123,d:{k:12}};
+    console.log(J.cmp(o1,o2));
     </script>
 </head>
 <body>
