@@ -116,6 +116,21 @@
         } 
         return tmp_arr.join('');
     }
+
+    /*
+    * HTML代码过滤
+    */
+    Jeff.prototype.htmlDecode = function(str){
+        return str
+              .replace(/&#39;/g, '\'')
+              .replace(/<br\s*(\/)?\s*>/g, '\n')
+              .replace(/&nbsp;/g, ' ')
+              .replace(/&lt;/g, '<')
+              .replace(/&gt;/g, '>')
+              .replace(/&quot;/g, '"')
+              .replace(/&amp;/g, '&');
+    }
+
     //URL类
     
 /*********************  URL类  *********************/
